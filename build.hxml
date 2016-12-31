@@ -1,0 +1,4 @@
+# Export the "Hello" class as a component.
+Hello
+-cp src
+-js dist/hello.js
