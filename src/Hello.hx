@@ -13,17 +13,26 @@ import js.html.*;
 	We define `Hello` as the class to export in build.hxml.
 **/
 // TODO: create a macro that generates an enthralPropTypes value based on HelloProps.
-@:expose
+@:keep
 class Hello {
-	var props:HelloProps;
-
-	public function new(authorData:HelloProps) {
-		this.props = authorData;
+	static function main() {
+		js.Lib.global.define([], function () {
+			return Hello;
+		});
 	}
 
-	public function setupView(container:Element) {
+	// Component definition
+
+	var container:Element;
+
+	public function new(config) {
+		this.container = config.container;
+	}
+
+	public function render(props:HelloProps) {
 		container.innerHTML = 'Hello ${props.name}, I am rendered using Haxe!';
 	}
+
 }
 
 typedef HelloProps = {

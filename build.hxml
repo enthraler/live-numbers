@@ -1,4 +1,4 @@
-# Export the "Hello" class as a component.
-Hello
+-main Hello
 -cp src
 -js dist/hello.js
+-dce full
