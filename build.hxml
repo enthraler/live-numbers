@@ -1,4 +1,6 @@
--main Hello
+-lib tink_macro
 -cp src
+-cp ../../../src
 -js dist/hello.js
+Hello
 -dce full

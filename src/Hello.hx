@@ -1,38 +1,27 @@
 import js.html.*;
+import enthral.HaxeComponent;
+import js.jquery.JQuery;
 
 /**
-	Haxe JS Enthral Component.
-
-	Haxe's default JS output is compatible with Common JS, and will be loaded by Enthral as a Common JS file.
-
-	See https://github.com/systemjs/systemjs/blob/master/docs/module-formats.md#amd
-
-	You can use the `js.Lib.require()` function to import a dependency using SystemJS.
-	You can also add `@:jsRequire` to an extern to import a dependency using SystemJS.
+	Haxe JS Enthraler Component.
 
 	We define `Hello` as the class to export in build.hxml.
+	Enthraler components need an AMD definition, and if you implement the `HaxeComponent` class, it will generate an AMD definition for you.
+
+	It will also take care of loading dependencies if you add `@:enthralDependency('amdPath', HaxeExtern)`.
+	Note: the macro will overwrite the `@:native` metadata on any externs to a custom global variable, and set that variable during the define function.
 **/
-// TODO: create a macro that generates an enthralPropTypes value based on HelloProps.
-@:keep
-class Hello {
-	static function main() {
-		js.Lib.global.define([], function () {
-			return Hello;
-		});
-	}
-
-	// Component definition
-
-	var container:Element;
+@:enthralerDependency('jquery', JQuery)
+class Hello implements HaxeComponent<HelloProps> {
+	var container:JQuery;
 
 	public function new(config) {
-		this.container = config.container;
+		this.container = new JQuery(config.container);
 	}
 
 	public function render(props:HelloProps) {
-		container.innerHTML = 'Hello ${props.name}, I am rendered using Haxe!';
+		container.text('Hello ${props.name}, I am rendered using Haxe!');
 	}
-
 }
 
 typedef HelloProps = {
