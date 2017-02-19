@@ -2,15 +2,15 @@
 (function ($global) { "use strict";
 var enthral_HaxeComponent = function() { };
 var Hello = function(config) {
-	this.container = js_jquery_JQuery(config.container);
+	this.header = js_jquery_JQuery("<h1>").appendTo(config.container);
 };
 Hello.__interfaces__ = [enthral_HaxeComponent];
 Hello.prototype = {
 	render: function(props) {
-		this.container.text("Hello " + props.name + ", I am rendered using Haxe!");
+		this.header.text("Hello " + props.name + ", I am rendered using Haxe!");
 	}
 };
-$global.define(["jquery"],function(js_jquery_JQuery) {
+$global.define(["jquery","css!hello"],function(js_jquery_JQuery,_) {
 	$global.js_jquery_JQuery = js_jquery_JQuery;
 	return Hello;
 });

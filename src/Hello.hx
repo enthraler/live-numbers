@@ -1,4 +1,3 @@
-import js.html.*;
 import enthral.HaxeComponent;
 import js.jquery.JQuery;
 
@@ -12,15 +11,16 @@ import js.jquery.JQuery;
 	Note: the macro will overwrite the `@:native` metadata on any externs to a custom global variable, and set that variable during the define function.
 **/
 @:enthralerDependency('jquery', JQuery)
+@:enthralerDependency('css!hello')
 class Hello implements HaxeComponent<HelloProps> {
-	var container:JQuery;
+	var header:JQuery;
 
 	public function new(config) {
-		this.container = new JQuery(config.container);
+		this.header = new JQuery('<h1>').appendTo(config.container);
 	}
 
 	public function render(props:HelloProps) {
-		container.text('Hello ${props.name}, I am rendered using Haxe!');
+		header.text('Hello ${props.name}, I am rendered using Haxe!');
 	}
 }
 
