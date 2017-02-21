@@ -1,4 +1,4 @@
-import enthral.HaxeComponent;
+import enthraler.HaxeEnthralerTemplate;
 import js.jquery.JQuery;
 
 /**
@@ -12,7 +12,7 @@ import js.jquery.JQuery;
 **/
 @:enthralerDependency('jquery', JQuery)
 @:enthralerDependency('css!hello')
-class Hello implements HaxeComponent<HelloProps> {
+class Hello implements HaxeEnthralerTemplate<HelloProps> {
 	var header:JQuery;
 
 	public function new(config) {
