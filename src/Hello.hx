@@ -1,4 +1,5 @@
 import enthraler.HaxeEnthralerTemplate;
+import enthraler.EnthralerEnvironment;
 import js.jquery.JQuery;
 
 /**
@@ -14,13 +15,16 @@ import js.jquery.JQuery;
 @:enthralerDependency('css!hello')
 class Hello implements HaxeEnthralerTemplate<HelloProps> {
 	var header:JQuery;
+	var environment:EnthralerEnvironment;
 
 	public function new(config) {
 		this.header = new JQuery('<h1>').appendTo(config.container);
+		this.environment = config.environment;
 	}
 
 	public function render(props:HelloProps) {
 		header.text('Hello ${props.name}, I am rendered using Haxe!');
+		environment.requestHeightChange();
 	}
 }
 
