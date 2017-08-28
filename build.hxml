@@ -1,6 +1,8 @@
 -lib tink_macro
+-lib actuate
+-lib thx.core
 -cp src
 -cp ../../../src
--js dist/hello.js
-Hello
+-js dist/live-numbers.js
+LiveNumbers
 -dce full

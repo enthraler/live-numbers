@@ -1,0 +1,17 @@
+body {
+	background: white;
+	color: black;
+}
+#container {
+	text-align: center;
+	margin: 10px;
+	font-weight: 400;
+	font-size: 24px;
+	line-height: 26px;
+}
+.number {
+	display: block;
+	font-size: 90px;
+	line-height: 100px;
+	font-weight: 800;
+}

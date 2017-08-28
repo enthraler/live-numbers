@@ -1,0 +1,8 @@
+{
+    "amount": 264028,
+    "every": "year",
+    "since": "start_of_year",
+    "template": "<strong>So far this year</strong> police in Australia would have dealt with on average {{NUMBER}} <strong>domestic violence matters.</strong>",
+    "bgColor": "#73AEDD",
+    "textColor": "white"
+}
